@@ -1,11 +1,25 @@
 {
+    "name": "we-can-go-anywhere",
     "private": true,
+    "version": "0.0.1",
+    "type": "module",
     "scripts": {
-        "build": "cargo build --release",
-        "test": "cargo test --release",
-        "fmt": "cargo fmt --all",
-        "p": "git push && git push --tags --prune",
-        "reset": "git reset Head~ --soft",
-        "u": "cargo upgrade --workspace"
-    }
+        "dev": "vite",
+        "build": "vue-tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@fluent/bundle": "^0.18.0",
+        "@fluent/langneg": "^0.7.0",
+        "fluent-vue": "^3.3.0",
+        "vue": "^3.3.4"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^4.2.3",
+        "sass": "^1.66.1",
+        "typescript": "^5.0.2",
+        "vite": "^4.4.5",
+        "vue-tsc": "^1.8.5"
+    },
+    "packageManager": "pnpm@9.15.0"
 }
