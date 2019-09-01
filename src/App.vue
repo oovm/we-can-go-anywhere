@@ -14,8 +14,8 @@ const images = ref([
   <div class="gallery">
     <div class="gallery-grid">
       <div v-for="image in images" :key="image" class="gallery-item">
-        <img :src=`/${image}.png` :alt="$t(`image-${image}`)" />
-        <div class="image-title">{{ $t(`image-${image}`) }}</div>
+        <img :src="'/' + image + '.png'" :alt="$t('image-' + image)" />
+        <div class="image-title">{{ $t('image-' + image) }}</div>
       </div>
     </div>
   </div>
