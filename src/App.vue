@@ -1,22 +1,40 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import GalleryItem from './components/GalleryItem.vue'
+import SearchBox from './components/SearchBox.vue'
+import GithubBanner from './components/GithubBanner.vue'
 
 // 图片列表
 const images = ref([
   'minecraft',
   'jojo',
   'attack-on-titan',
-  '吉利普'
+  'ghibli'
 ])
+
+// 搜索关键词
+const searchQuery = ref('')
+
+// 过滤后的图片列表
+const filteredImages = computed(() => {
+  const query = searchQuery.value.toLowerCase()
+  return images.value.filter(image => 
+    image.toLowerCase().includes(query) || 
+    $t('image-' + image).toLowerCase().includes(query)
+  )
+})
 </script>
 
 <template>
   <div class="gallery">
+    <GithubBanner />
+    <SearchBox v-model="searchQuery" />
     <div class="gallery-grid">
-      <div v-for="image in images" :key="image" class="gallery-item">
-        <img :src="'/' + image + '.png'" :alt="$t('image-' + image)" />
-        <div class="image-title">{{ $t('image-' + image) }}</div>
-      </div>
+      <GalleryItem
+        v-for="image in filteredImages"
+        :key="image"
+        :image="image"
+      />
     </div>
   </div>
 </template>
@@ -35,29 +53,6 @@ const images = ref([
     margin: 0 auto;
   }
 
-  .gallery-item {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
-
-    img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-
-    .image-title {
-      padding: 1rem;
-      font-size: 1.1rem;
-      text-align: center;
-      color: #333;
-    }
-  }
+  
 }
 </style>
