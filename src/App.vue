@@ -1,15 +1,28 @@
+<template>
+  <div class="gallery">
+    <GithubBanner/>
+    <SearchBox v-model="searchQuery"/>
+    <div class="gallery-grid">
+      <GalleryItem v-for="image in filteredImages" :key="image" :image="image"/>
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import {computed, ref} from 'vue'
 import GalleryItem from './components/GalleryItem.vue'
 import SearchBox from './components/SearchBox.vue'
 import GithubBanner from './components/GithubBanner.vue'
+import {useFluent} from "fluent-vue";
+
+const {$t} = useFluent()
 
 // 图片列表
 const images = ref([
   'minecraft',
   'jojo',
   'attack-on-titan',
-  'ghibli'
+  // 'ghibli'
 ])
 
 // 搜索关键词
@@ -18,26 +31,13 @@ const searchQuery = ref('')
 // 过滤后的图片列表
 const filteredImages = computed(() => {
   const query = searchQuery.value.toLowerCase()
-  return images.value.filter(image => 
-    image.toLowerCase().includes(query) || 
-    $t('image-' + image).toLowerCase().includes(query)
+  return images.value.filter(image =>
+      image.toLowerCase().includes(query) ||
+      $t('image-' + image).toLowerCase().includes(query)
   )
 })
 </script>
 
-<template>
-  <div class="gallery">
-    <GithubBanner />
-    <SearchBox v-model="searchQuery" />
-    <div class="gallery-grid">
-      <GalleryItem
-        v-for="image in filteredImages"
-        :key="image"
-        :image="image"
-      />
-    </div>
-  </div>
-</template>
 
 <style lang="scss" scoped>
 .gallery {
@@ -52,7 +52,5 @@ const filteredImages = computed(() => {
     max-width: 1200px;
     margin: 0 auto;
   }
-
-  
 }
 </style>
