@@ -6,7 +6,10 @@ defineProps<{
 
 <template>
   <div class="gallery-item">
-    <img :src="'/' + image + '.png'" :alt="$t('image-' + image)"/>
+    <picture>
+      <source :srcset="'/' + image + '.avif'" type="image/avif">
+      <img :src="'/' + image + '.png'" :alt="$t('image-' + image)"/>
+    </picture>
     <div class="image-title">{{ $t('image-' + image) }}</div>
   </div>
 </template>

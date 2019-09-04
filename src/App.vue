@@ -1,7 +1,7 @@
 <template>
   <div class="gallery">
     <GithubBanner/>
-    <SearchBox v-model="searchQuery"/>
+    <NavigationBar v-model="searchQuery"/>
     <div class="gallery-grid">
       <GalleryItem v-for="image in filteredImages" :key="image" :image="image"/>
     </div>
@@ -11,8 +11,8 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 import GalleryItem from './components/GalleryItem.vue'
-import SearchBox from './components/SearchBox.vue'
 import GithubBanner from './components/GithubBanner.vue'
+import NavigationBar from './components/NavigationBar.vue'
 import {useFluent} from "fluent-vue";
 
 const {$t} = useFluent()
@@ -41,7 +41,7 @@ const filteredImages = computed(() => {
 
 <style lang="scss" scoped>
 .gallery {
-  padding: 2rem;
+  padding: 6rem 2rem 2rem;
   min-height: 100vh;
   background-color: #f5f5f5;
 
