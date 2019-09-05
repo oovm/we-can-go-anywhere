@@ -1,7 +1,7 @@
 import {createFluentVue} from 'fluent-vue'
 import {FluentBundle, FluentResource} from '@fluent/bundle'
 import enFtl from './en-us.ftl?raw'
-import zhFtl from './zh-hant.ftl?raw'
+import zhFtl from './zh-hans.ftl?raw'
 import {negotiateLanguages} from "@fluent/langneg";
 import {ref} from 'vue'
 
@@ -26,7 +26,7 @@ export const currentLocale = ref(getNegotiatedLanguages())
  * @param defaultLocale 默认语言
  * @returns 协商后的语言列表
  */
-export function getNegotiatedLanguages(defaultLocale = 'zh-hant') {
+export function getNegotiatedLanguages(defaultLocale = 'zh-hans') {
     const userLocales = navigator.languages || [navigator.language]
     const availableLocales = LOCATE_BUNDLES.map(bundle => bundle.locales[0])
     const negotiated = negotiateLanguages(
@@ -39,7 +39,7 @@ export function getNegotiatedLanguages(defaultLocale = 'zh-hant') {
 
 // 切换语言
 export function toggleLanguage() {
-    currentLocale.value = currentLocale.value === 'en-us' ? 'zh-hans' : 'en-us'
+    currentLocale.value = currentLocale.value === 'en-us' ? 'zh-hant' : 'en-us'
 }
 
 // 导出 fluent-vue 实例创建函数

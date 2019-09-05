@@ -10,7 +10,7 @@ home-title = 探索无限可能
 home-description = 让我们一起踏上这段奇妙的旅程
 
 # 关于页
-about-title = 关于我们
+about-title = 我™想去哪就去哪
 about-description = 我们致力于为您提供最好的体验
 
 # 画廊

@@ -2,11 +2,13 @@
 import SearchBox from './SearchBox.vue'
 import LanguageToggle from './LanguageToggle.vue'
 import GithubBanner from "./GithubBanner.vue";
+import {useFluent} from "fluent-vue";
 
 defineProps<{
   modelValue: string
 }>()
 const GITHUB_URL = 'https://github.com/oovm/we-can-go-anywhere'
+const {$t} = useFluent()
 defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
@@ -15,7 +17,7 @@ defineEmits<{
 <template>
   <nav class="navigation-bar">
     <div class="nav-content">
-      <h1 class="site-title">We Can Go Anywhere</h1>
+      <h1 class="site-title">{{ $t("home-title") }}</h1>
       <div class="nav-items">
         <SearchBox
             :model-value="modelValue"
@@ -72,21 +74,7 @@ defineEmits<{
         }
       }
 
-      .github-link {
-        display: flex;
-        align-items: center;
-        margin-left: 1rem;
-
-        .github-icon {
-          width: 24px;
-          height: 24px;
-          transition: opacity 0.3s ease;
-
-          &:hover {
-            opacity: 0.7;
-          }
-        }
-      }
+      /* GitHub link styles are now handled in GithubBanner component */
     }
   }
 }

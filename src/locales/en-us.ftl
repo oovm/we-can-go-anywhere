@@ -6,7 +6,7 @@ nav-home = Home
 nav-about = About
 
 # Home Page
-home-title = Explore Infinite Possibilities
+home-title = We Can Go Anywhere
 home-description = Let's embark on this wonderful journey together
 
 # About Page
