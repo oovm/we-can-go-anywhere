@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import SearchBox from './SearchBox.vue'
 import LanguageToggle from './LanguageToggle.vue'
-import githubIcon from '../assets/github.svg'
+import GithubBanner from "./GithubBanner.vue";
 
 defineProps<{
   modelValue: string
 }>()
-
+const GITHUB_URL = 'https://github.com/oovm/we-can-go-anywhere'
 defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
@@ -18,14 +18,12 @@ defineEmits<{
       <h1 class="site-title">We Can Go Anywhere</h1>
       <div class="nav-items">
         <SearchBox
-          :model-value="modelValue"
-          @update:model-value="$emit('update:modelValue', $event)"
-          class="nav-search"
+            :model-value="modelValue"
+            @update:model-value="$emit('update:modelValue', $event)"
+            class="nav-search"
         />
-        <LanguageToggle class="nav-language" />
-        <a href="https://github.com/your-username/we-can-go-anywhere" target="_blank" class="github-link">
-          <img :src="githubIcon" alt="GitHub" class="github-icon" />
-        </a>
+        <LanguageToggle class="nav-language"/>
+        <github-banner :url="GITHUB_URL"/>
       </div>
     </div>
   </nav>
@@ -40,7 +38,7 @@ defineEmits<{
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  padding: 1rem;
+  padding: 0.5rem;
 
   .nav-content {
     max-width: 1200px;
@@ -50,7 +48,7 @@ defineEmits<{
     align-items: center;
 
     .site-title {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       margin: 0;
       color: #151513;
     }
@@ -58,7 +56,7 @@ defineEmits<{
     .nav-items {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.5rem;
 
       .nav-search {
         :deep(.search-box) {

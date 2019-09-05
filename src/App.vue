@@ -1,6 +1,5 @@
 <template>
   <div class="gallery">
-    <GithubBanner/>
     <NavigationBar v-model="searchQuery"/>
     <div class="gallery-grid">
       <GalleryItem v-for="image in filteredImages" :key="image" :image="image"/>
@@ -11,7 +10,6 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 import GalleryItem from './components/GalleryItem.vue'
-import GithubBanner from './components/GithubBanner.vue'
 import NavigationBar from './components/NavigationBar.vue'
 import {useFluent} from "fluent-vue";
 
