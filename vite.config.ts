@@ -1,25 +1,17 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
-import viteImagemin from 'vite-plugin-imagemin'
+import {viteImageToAVIFPlugin} from "vite-image-to-avif-plugin";
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
         vue(),
-        viteImagemin({
-            pngquant: {
-                quality: [0.8, 0.9],
-                speed: 4
-            },
-            webp: {
-                quality: 80,
-                lossless: false
-            },
-            // avif: {
-            //     quality: 80,
-            //     lossless: false
-            // }
-        })
+        viteImageToAVIFPlugin({
+            sourcePaths: ["public"],
+            quality: 75,
+            outputDir: "dist",
+            preserveStructure: true,
+        }),
     ],
     css: {
         preprocessorOptions: {

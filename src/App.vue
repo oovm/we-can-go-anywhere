@@ -1,6 +1,6 @@
 <template>
   <div class="gallery">
-    <NavigationBar v-model="searchQuery"/>
+    <NavigationHeader v-model="searchQuery"/>
     <div class="gallery-grid">
       <GalleryItem v-for="image in filteredImages" :key="image" :image="image"/>
     </div>
@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 import GalleryItem from './components/GalleryItem.vue'
-import NavigationBar from './components/NavigationBar.vue'
+import NavigationHeader from './components/NavigationHeader.vue'
 import {useFluent} from "fluent-vue";
 
 const {$t} = useFluent()
