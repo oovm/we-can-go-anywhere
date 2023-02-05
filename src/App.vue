@@ -1,8 +1,8 @@
 <template>
+  <navigation-header v-model="searchQuery"/>
   <div class="gallery">
-    <NavigationHeader v-model="searchQuery"/>
     <div class="gallery-grid">
-      <GalleryItem v-for="image in filteredImages" :key="image" :image="image"/>
+      <gallery-item v-for="image in filteredImages" :key="image" :image="image"/>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@ const images = ref([
   'minecraft',
   'jojo',
   'attack-on-titan',
-  // 'ghibli'
+  'ghibli'
 ])
 
 // 搜索关键词

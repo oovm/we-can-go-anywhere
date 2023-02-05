@@ -42,12 +42,17 @@ export function getNegotiatedLanguages(defaultLocale = 'zh-hans') {
 
 // 切换语言
 export function setLanguage(locale: string) {
-    currentLocale.value = locale
+    if (locale == 'en-us') {
+        fluentVue.bundles = [enBundle]
+    } else if (locale == 'zh-hans') {
+        fluentVue.bundles = [zhBundle]
+    } else if (locale == 'zh-hant') {
+        fluentVue.bundles = [zhHantBundle]
+    }
 }
 
 // 导出 fluent-vue 实例创建函数
 const fluentVue = createFluentVue({
     bundles: LOCATE_BUNDLES,
-    current: currentLocale
 })
 export default fluentVue

@@ -1,4 +1,4 @@
-Rust Template Project
-=====================
+## 我™想去哪就去哪！
 
-Rust template project for monorepo
+你去不了怎么不找找自己的问题？
+
