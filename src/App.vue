@@ -18,9 +18,11 @@ const {$t} = useFluent()
 // 图片列表
 const images = ref([
   'minecraft',
+  'ghibli',
   'jojo',
   'attack-on-titan',
-  'ghibli'
+  'genshin-impact',
+  'tomie'
 ])
 
 // 搜索关键词

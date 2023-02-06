@@ -21,20 +21,22 @@ defineEmits<{
 
 <style lang="scss" scoped>
 .search-box {
-  margin: 0 auto 2rem;
-  max-width: 600px;
+  position: relative;
+  width: 250px;
   
   input {
     width: 100%;
-    padding: 0.8rem 1.2rem;
-    font-size: 1.1rem;
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    height: 36px;
+    padding: 0 1rem;
+    font-size: 0.95rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
     
     &:focus {
       border-color: #4a90e2;
+      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
     }
   }
 }
