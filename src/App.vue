@@ -24,7 +24,10 @@ const images = ref([
   'jojo',
   'attack-on-titan',
   'genshin-impact',
-  'tomie'
+  'tomie',
+  'super-mario',
+  'starry-night',
+  'wave-off-kanagawa'
 ])
 
 // 搜索关键词
