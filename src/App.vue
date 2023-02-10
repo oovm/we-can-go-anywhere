@@ -13,21 +13,24 @@ import {computed, ref} from 'vue'
 import GalleryItem from './components/GalleryItem.vue'
 import NavigationHeader from './components/NavigationHeader.vue'
 import {useFluent} from "fluent-vue";
-import { SpeedInsights } from "@vercel/speed-insights/vue"
+import {SpeedInsights} from "@vercel/speed-insights/vue"
 
 const {$t} = useFluent()
 
 // 图片列表
 const images = ref([
   'minecraft',
+  'super-mario',
+  'genshin-impact',
   'ghibli',
   'jojo',
   'attack-on-titan',
-  'genshin-impact',
+  'berserk',
+  'dark-soul',
   'tomie',
-  'super-mario',
   'starry-night',
-  'wave-off-kanagawa'
+  'wave-off-kanagawa',
+
 ])
 
 // 搜索关键词
