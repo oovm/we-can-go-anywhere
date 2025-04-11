@@ -11,6 +11,7 @@
     "dependencies": {
         "@fluent/bundle": "^0.18.0",
         "@fluent/langneg": "^0.7.0",
+        "@vercel/speed-insights": "^1.2.0",
         "fluent-vue": "^3.3.0",
         "vue": "^3.3.4"
     },

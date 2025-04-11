@@ -5,6 +5,7 @@
       <gallery-item v-for="image in filteredImages" :key="image" :image="image"/>
     </div>
   </div>
+  <speed-insights/>
 </template>
 
 <script setup lang="ts">
@@ -12,6 +13,7 @@ import {computed, ref} from 'vue'
 import GalleryItem from './components/GalleryItem.vue'
 import NavigationHeader from './components/NavigationHeader.vue'
 import {useFluent} from "fluent-vue";
+import { SpeedInsights } from "@vercel/speed-insights/vue"
 
 const {$t} = useFluent()
 
